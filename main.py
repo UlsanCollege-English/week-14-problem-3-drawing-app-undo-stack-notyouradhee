@@ -1,6 +1,6 @@
 
 ## main.py
-```python
+
 """
 HW03 — Drawing App Undo Stack
 
@@ -25,7 +25,14 @@ def simulate_history(actions):
     # 6. Translate to Python using a list as a stack.
     # 7. Debug with small examples (including extra UNDOs).
     # 8. Check that you only loop once (O(N)).
-    raise NotImplementedError("Implement simulate_history in main.py")
+    stack = []
+    for action in actions:
+        if action == "UNDO":
+            if stack:
+                stack.pop()
+        else:
+            stack.append(action)
+    return stack
 
 
 if __name__ == "__main__":
